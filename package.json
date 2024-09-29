@@ -1,0 +1,12 @@
+{
+  "name": "ip-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^your_version",
+    "cors": "^your_version"
+  }
+}
