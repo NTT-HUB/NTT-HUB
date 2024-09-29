@@ -1,16 +1,18 @@
-const express = require('express');
-const cors = require('cors');
+const http = require('http');
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const requestListener = function (req, res) {
+    // Lấy địa chỉ IP của người dùng
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-app.use(cors());
+    // Trả về IP dưới dạng JSON
+    res.setHeader('Content-Type', 'application/json');
+    res.writeHead(200);
+    res.end(JSON.stringify({ ip: ip }));
+};
 
-app.get('/ip', (req, res) => {
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    res.json({ ip: ip });
-});
+const server = http.createServer(requestListener);
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
