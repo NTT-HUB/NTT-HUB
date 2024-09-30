@@ -17,8 +17,8 @@ function buttonClicked1() {
         }
 function buttonClicked2() {
             // Thay đổi URL đến trang bạn muốn chuyển hướng
-            // window.location.href = 'https://discord.com/invite/P44exUDArv';
-    window.location.href = 'Key.html';
+            window.location.href = 'https://discord.com/invite/P44exUDArv';
+    
         }
 function donate() {
     //test web donate
