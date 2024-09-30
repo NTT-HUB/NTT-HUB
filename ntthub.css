@@ -1,0 +1,112 @@
+/* Đặt màu nền của trang web là đen và chữ màu trắng */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Nền màu đen */
+    color: #fff; /* Chữ màu trắng */
+    position: relative; /* Để có thể căn chỉnh các phần tử con */
+    height: 100vh; /* Chiều cao toàn màn hình */
+    overflow: hidden; /* Ngăn cuộn màn hình */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kiểu dáng cho tiêu đề 1 (trái trên cùng) */
+.title1 {
+    position: absolute;
+    top: 20px; /* Khoảng cách từ trên cùng */
+    left: 20px; /* Khoảng cách từ bên trái */
+}
+
+/* Kiểu dáng cho tiêu đề 2 (dưới tiêu đề 1) */
+.title2 {
+    position: absolute;
+    top: 80px; /* Khoảng cách từ tiêu đề 1 */
+    left: 20px; /* Khoảng cách từ bên trái */
+}
+
+/* Kiểu dáng cho tiêu đề 3 (trên nút) */
+.title3 {
+    position: absolute;
+    top: 45%; /* Đặt tiêu đề vào giữa màn hình theo chiều dọc */
+    left: 50%; /* Đặt tiêu đề vào giữa màn hình theo chiều ngang */
+    transform: translate(-50%, -100%); /* Căn giữa tiêu đề theo chiều ngang và đặt lên trên nút */
+}
+
+/* Kiểu dáng cho text box */
+.textbox {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Kiểu dáng cho nút */
+#myButton {
+    position: absolute;
+    top: 50%; /* Đặt nút ở giữa màn hình */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa nút theo chiều ngang */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000; /* Nút màu đen */
+    color: white;
+    border: 2px solid #fff; /* Viền trắng */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hiệu ứng khi hover nút */
+#myButton:hover {
+    background-color: #333; /* Đổi sang màu xám khi hover */
+}
+
+/* Kiểu dáng cho tiêu đề 4 (trên nút) */
+.title4 {
+    position: absolute;
+    top: 70%; /* Đặt tiêu đề vào giữa màn hình theo chiều dọc */
+    left: 50%; /* Đặt tiêu đề vào giữa màn hình theo chiều ngang */
+    transform: translate(-50%, -100%); /* Căn giữa tiêu đề theo chiều ngang và đặt lên trên nút */
+}
+
+/* Kiểu dáng cho nút khác */
+#myButton1 {
+    position: absolute;
+    top: 75%; /* Đặt nút ở giữa màn hình */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa nút theo chiều ngang */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000; /* Nút màu đen */
+    color: white;
+    border: 2px solid #fff; /* Viền trắng */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#myButton2 {
+    position: absolute;
+    top: 0%; 
+    left: 50%;
+    transform: translateX(90%); /* Căn giữa nút theo chiều ngang */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000; /* Nút màu đen */
+    color: white;
+    border: 2px solid #fff; /* Viền trắng */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hiệu ứng khi hover nút khác */
+#myButton1:hover {
+    background-color: #333; /* Đổi sang màu xám khi hover */
+}
