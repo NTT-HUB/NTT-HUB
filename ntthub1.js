@@ -20,17 +20,16 @@ function sendPost() {
             setTimeout(() => {
                 if (data.status === true) {
                     console.log('POST thành công, chuyển hướng...');
-              const hwid = localStorage.getItem('savehwid');      
-                    
-            if (!hwid) {
-            localStorage.setItem('hwid', hwid);
-        // Hiển thị thông báo khi HWID được lưu
-            console.log('HWID đã được lưu:', hwid);
-        } else {
-            console.log('Không tìm thấy HWID trong URL');
-        }
-                
+               // hwid     
+              const hwid = localStorage.getItem('hwid'); // Lấy giá trị hwid từ localStorage
 
+// Kiểm tra nếu hwid tồn tại trong localStorage
+if (hwid) {
+    console.log('HWID đã được tải:', hwid);
+} else {
+    console.log('Không tìm thấy HWID trong localStorage');
+}
+                
                     window.location.href = 'https://link-hub.net/1213408/ntt-hub2';
                 } else {
                     console.log('POST không thành công, chuyển về trang mặc định...');
