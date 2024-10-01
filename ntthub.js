@@ -1,12 +1,12 @@
 // Lấy giá trị hwid từ URL
         const urlParams = new URLSearchParams(window.location.search);
-        const hwid = urlParams.get('hwid');
+        const savehwid = urlParams.get('hwid');
 
         // Kiểm tra nếu hwid tồn tại trong URL thì lưu vào localStorage và hiển thị thông báo
-        if (hwid) {
-            localStorage.setItem('hwid', hwid);
-            alert('HWID đã được lưu: ' + hwid);  // Hiển thị thông báo khi HWID được lưu
-            console.log('HWID đã được lưu:', hwid);
+        if (savehwid) {
+            localStorage.setItem('hwid', savehwid);
+        // Hiển thị thông báo khi HWID được lưu
+            console.log('HWID đã được lưu:', savehwid);
         } else {
             console.log('Không tìm thấy HWID trong URL');
         }
