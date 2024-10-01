@@ -31,7 +31,7 @@ function sendPost() {
         }
                 
 
-                    window.location.href = redirectLink;
+                    window.location.href = 'https://link-hub.net/1213408/ntt-hub2';
                 } else {
                     console.log('POST không thành công, chuyển về trang mặc định...');
                     // Nếu không thành công, chuyển về trang mặc định
