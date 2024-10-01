@@ -26,6 +26,10 @@ function sendPost() {
 // Kiểm tra nếu hwid tồn tại trong localStorage
 if (hwid) {
     console.log('HWID đã được tải:', hwid);
+    
+    // Lưu lại hwid vào localStorage
+    localStorage.setItem('hwid', hwid);
+    console.log('HWID đã được lưu lại:', hwid);
 } else {
     console.log('Không tìm thấy HWID trong localStorage');
 }
