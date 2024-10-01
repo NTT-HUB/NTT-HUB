@@ -39,7 +39,7 @@
                         } else {
                             // Hash sai, chờ 5 giây trước khi chuyển hướng về trang ban đầu
                             setTimeout(() => {
-                                window.location.href = 'https://ntt-hub.vercel.app/';
+                                window.location.href = 'index.html';
                             }, 5000); // Chờ 5 giây
                         }
                     })
@@ -47,7 +47,7 @@
                         console.error('Error:', error);
                         // Chuyển hướng về trang ban đầu nếu có lỗi sau 5 giây
                         setTimeout(() => {
-                            window.location.href = 'https://ntt-hub.vercel.app/';
+                            window.location.href = 'index.html';
                         }, 5000); // Chờ 5 giây
                     });
                 }, 2000); // Chờ 2 giây trước khi gửi POST
