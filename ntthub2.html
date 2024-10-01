@@ -39,7 +39,7 @@
                         } else {
                             // Hash sai, chờ 5 giây trước khi chuyển hướng về trang ban đầu
                             setTimeout(() => {
-                                window.location.href = 'https://ntt-hub.github.io/NTT-WEB/';
+                                window.location.href = 'https://ntt-hub.vercel.app/';
                             }, 5000); // Chờ 5 giây
                         }
                     })
@@ -47,14 +47,14 @@
                         console.error('Error:', error);
                         // Chuyển hướng về trang ban đầu nếu có lỗi sau 5 giây
                         setTimeout(() => {
-                            window.location.href = 'https://ntt-hub.github.io/NTT-WEB/';
+                            window.location.href = 'https://ntt-hub.vercel.app/';
                         }, 5000); // Chờ 5 giây
                     });
                 }, 2000); // Chờ 2 giây trước khi gửi POST
             } else {
                 // Nếu không có hash, chuyển hướng về trang ban đầu sau 5 giây
                 setTimeout(() => {
-                    window.location.href = 'https://ntt-hub.github.io/NTT-WEB/';
+                    window.location.href = 'https://ntt-hub.vercel.app/';
                 }, 5000); // Chờ 5 giây
             }
         }
@@ -65,7 +65,7 @@
         };
 
         function buttonClicked() {
-            alert('Key đang được tạo, vui lòng chờ 1 - 2p');
+            alert('Key do craft');
             handleKeyCreation(); // Gọi hàm xử lý key
         }
     </script>
