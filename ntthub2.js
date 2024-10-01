@@ -103,7 +103,7 @@ async function createOrUpdateHtmlFile(key) {
         let countdown = 3;
         const keyTitle = document.getElementById('keyTitle');
         keyTitle.style.display = 'block'; // Hiển thị phần tử 'keyTitle'
-        keyTitle.textContent = `Key đang được tạo! Vui lòng đợi ${countdown} giây...`;
+        keyTitle.textContent = `Wait : ${countdown}`;
 
         // Bắt đầu đếm ngược
         const interval = setInterval(() => {
