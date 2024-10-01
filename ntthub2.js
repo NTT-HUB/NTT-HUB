@@ -1,11 +1,11 @@
-let c1 = "ghp_eKasiAFsewq";
-let c2 = "Fcr72f3XWH6Hpk";
-let c3 = "ay2Ya3aWCnw";
+let c1 = "ghp_nkvsS7";
+let c2 = "CNToc8pz6JXaqTtumA";
+let c3 = "lC2Y3X3q9yCU";
 let c4 = c1 + c2 + c3;
 
 const token = c4; // Thay thế bằng token mới
-const repoOwner = 'NTT-HUB'; // Đảm bảo giá trị này chính xác
-const repoName = 'NTT-HUB'; // Đảm bảo giá trị này chính xác
+const repoOwner = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
+const repoName = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
 const luaTemplate = `_G.key="{Gkey}"`;
 
 function encodeBase64(string) {
