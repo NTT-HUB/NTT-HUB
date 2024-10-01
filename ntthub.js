@@ -1,15 +1,13 @@
-// Lấy giá trị hwid từ URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const savehwid = urlParams.get('hwid');
+const urlParams = new URLSearchParams(window.location.search);
+const savehwid = urlParams.get('hwid');
 
-        // Kiểm tra nếu hwid tồn tại trong URL thì lưu vào localStorage và hiển thị thông báo
-        if (savehwid) {
-            localStorage.setItem('hwid', savehwid);
-        // Hiển thị thông báo khi HWID được lưu
-            console.log('HWID đã được lưu:', savehwid);
-        } else {
-            console.log('Không tìm thấy HWID trong URL');
-        }
+// Kiểm tra nếu hwid tồn tại trong URL thì lưu vào localStorage
+if (savehwid) {
+    localStorage.setItem('hwid', savehwid);
+    console.log('HWID đã được lưu:', savehwid);
+} else {
+    console.log('Không tìm thấy HWID trong URL');
+}
 
 function buttonClicked1() {
             // Thay đổi URL đến trang bạn muốn chuyển hướng
