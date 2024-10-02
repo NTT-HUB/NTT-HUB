@@ -85,7 +85,7 @@
         function copyKey() {
             const keyText = document.getElementById('keyDisplay').textContent;
             navigator.clipboard.writeText(keyText).then(() => {
-                alert('Key đã được copy!');
+                alert('Key was copy!');
             }).catch(err => {
                 console.error('Error copying key:', err);
             });
