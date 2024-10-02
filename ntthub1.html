@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đang chuyển hướng...</title>
-    <script src="ntthub1.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Nền đen */
+            color: #fff; /* Chữ trắng */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .countdown {
+            font-size: 24px;
+            text-align: center;
+            background-color: #000; /* Màu nền tối cho khung đếm */
+            padding: 20px;                      
+        }
+    </style>
 </head>
 <body>
-    <p>Wait 5s</p>
+    <div class="top-left">Key Syteam NTT HUB</div>
+    <div class="countdown">
+        <p>Wait : <span id="countdownNumber">5</span>s</p>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdownNumber');
+
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            // Khi đếm ngược về 0, dừng đếm
+            if (countdown === 0) {
+                clearInterval(interval);
+              
+            }
+        }, 1000); // Cập nhật mỗi giây
+    </script>
 </body>
 </html>
