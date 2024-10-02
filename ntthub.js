@@ -7,6 +7,7 @@ if (savehwid) {
     console.log('HWID đã được lưu:', savehwid);
 } else {
     console.log('Không tìm thấy HWID trong URL');
+    alert('Don't Have HWID!');
 }
 
 function buttonClicked1() {
