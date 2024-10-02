@@ -103,15 +103,24 @@ async function createOrUpdateLuaFile(key) {
         // Tạo tên file Lua với HWID và ngày tháng năm
         const filePath = `Key/${hwid}${currentDate.day}${currentDate.month}${currentDate.year}.lua`;
         let existingContent = await getFileContent(filePath);
-
+        
+        // Nội dung của Lua file, thay thế {Gkey} bằng key được truyền vào
         const luaContent = luaTemplate.replace('{Gkey}', `KEY_NTT_HUB_${key}`);
 
-        if (existingContent.includes(`-- Day = ${currentDate.day}`) &&
-            existingContent.includes(`-- Month = ${currentDate.month}`) &&
-            existingContent.includes(`-- Year = ${currentDate.year}`) &&
-            existingContent.includes(`-- HWID = ${hwid}`)) {
-            existingContent += `\n${luaContent}`;
+        // Kiểm tra nội dung file hiện tại nếu tồn tại
+        if (existingContent) {
+            if (existingContent.includes(`-- Day = ${currentDate.day}`) &&
+                existingContent.includes(`-- Month = ${currentDate.month}`) &&
+                existingContent.includes(`-- Year = ${currentDate.year}`) &&
+                existingContent.includes(`-- HWID = ${hwid}`)) {
+                // Nếu nội dung đã khớp, thêm nội dung mới
+                existingContent += `\n${luaContent}`;
+            } else {
+                // Nếu không khớp, thay thế toàn bộ nội dung
+                existingContent = luaContent;
+            }
         } else {
+            // Nếu file không tồn tại, tạo nội dung mới
             existingContent = luaContent;
         }
 
@@ -120,6 +129,7 @@ async function createOrUpdateLuaFile(key) {
             content: encodeBase64(existingContent)
         };
 
+        // Tạo URL cho API GitHub
         const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
         const headers = {
             'Content-Type': 'application/json',
@@ -127,18 +137,37 @@ async function createOrUpdateLuaFile(key) {
             'Accept': 'application/vnd.github.v3+json'
         };
 
-        // Cập nhật file Lua
-        await fetch(url, {
+        // Kiểm tra file có tồn tại không để lấy SHA nếu cần cập nhật
+        const fileResponse = await fetch(url, {
+            method: 'GET',
+            headers: headers
+        });
+
+        // Lấy sha nếu file đã tồn tại
+        if (fileResponse.ok) {
+            const fileData = await fileResponse.json();
+            data.sha = fileData.sha; // Thêm SHA vào dữ liệu nếu file tồn tại
+        }
+
+        // Cập nhật hoặc tạo mới file Lua
+        const updateResponse = await fetch(url, {
             method: 'PUT',
             headers: headers,
             body: JSON.stringify(data)
         });
 
-        console.log('File Lua đã cập nhật thành công');
+        if (updateResponse.ok) {
+            console.log('File Lua đã cập nhật thành công');
+        } else {
+            const errorData = await updateResponse.json();
+            console.error('Error updating file:', errorData);
+        }
     } catch (error) {
         console.error('Error creating or updating Lua file:', error);
     }
 }
+
+
 
 async function handleKeyCreation() {
     const key = getRandomKey(); // Tạo key ngẫu nhiên
