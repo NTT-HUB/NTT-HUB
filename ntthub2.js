@@ -113,7 +113,7 @@ async function createOrUpdateHtmlFile(key) {
             // Khi đếm ngược về 0, dừng đếm và chuyển hướng
             if (countdown === 0) {
                 clearInterval(interval);
-                window.location.href = `https://ntt-key.vercel.app/Key/${hwid}${currentDate.day}${currentDate.month}${currentDate.year}.html`;
+                window.location.href = 'ntt-key.html' //`https://ntt-key.vercel.app/Key/${hwid}${currentDate.day}${currentDate.month}${currentDate.year}.html`;
             }
         }, 1000); // Cập nhật mỗi giây
     } catch (error) {
