@@ -5,44 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Key</title>
     <link rel="stylesheet" href="ntthub.css">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-        }
-
-        /* Chữ "NTT HUB Key System" nhỏ hơn và ở góc trên bên trái */
-        .top-left {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 14px; /* Làm chữ nhỏ lại */
-            font-weight: bold;
-        }
-
-        .center-text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-size: 36px;
-            font-weight: bold;
-        }
-
-        .countdown {
-            font-size: 36px;
-        }
-    </style>
 </head>
 <body>
-    <!-- Góc trên bên trái với chữ nhỏ -->
-    <div class="top-left">NTT HUB Key System</div>
+    <h1 class="title title1">NTT HUB</h1>
+    <h1 class="title title2">Key System</h1>
+    <h1 id="keyTitle" class="title title3">Key</h1>
 
-    <!-- Phần đếm ngược ở giữa trang -->
-    <div class="center-text">
-        <p>Wait <span id="countdown" class="countdown">5</span>s</p>
-    </div>
+    <!-- Nút bị ẩn khi vào trang -->
+    <button id="myButton" style="display:none;" onclick="buttonClicked()">Craft Key</button>
+    
+    <!-- Thêm các nút khác nếu cần và chúng cũng bị ẩn khi vào trang -->
+    <iframe id="fileFrame" style="display:none; width:100%; height:500px;"></iframe>
 
+    <script src="ntthub2.js"></script>
     <script>
         // Lấy giá trị hash từ URL
         const urlParams = new URLSearchParams(window.location.search);
@@ -90,6 +65,7 @@
         };
 
         function buttonClicked() {
+           // alert('Key do craft');
             handleKeyCreation(); // Gọi hàm xử lý key
         }
     </script>
