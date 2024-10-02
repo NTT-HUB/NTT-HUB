@@ -70,13 +70,15 @@
     <div class="top-left">Key Syteam NTT HUB</div>
     <div class="container">
         <h1>Key</h1>
-        const key = localStorage.getItem('key'); 
-        costt get =`KEY_NTT_HUB_${key}`
+        
         <div class="key-display" id="keyDisplay">${get}</div>
         <button class="copy-button" onclick="copyKey()">Copy</button>
     </div>
     <script>
-    
+        
+        const key = localStorage.getItem('key'); 
+        const get =`KEY_NTT_HUB_${key}`
+        
         function copyKey() {
             const keyText = document.getElementById('keyDisplay').textContent;
             navigator.clipboard.writeText(keyText).then(() => {
