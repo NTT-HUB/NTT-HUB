@@ -100,7 +100,7 @@ async function createOrUpdateHtmlFile(key) {
         document.getElementById('fileFrame').style.display = 'none';
         document.getElementById('myButton').style.display = 'none';
 
-        let countdown = 10;
+        let countdown = 3;
         const keyTitle = document.getElementById('keyTitle');
         keyTitle.style.display = 'block'; // Hiển thị phần tử 'keyTitle'
         keyTitle.textContent = `Wait : ${countdown}`;
