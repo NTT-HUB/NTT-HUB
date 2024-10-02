@@ -1,4 +1,4 @@
-let c1 = "ghp_z0c2mIDxkne"; 
+let c1 = "ghp_z0c2mIDxkne";
 let c2 = "llVUHSyouap";
 let c3 = "EFPofFhf1G15EW";
 let c4 = c1 + c2 + c3;
@@ -100,7 +100,7 @@ async function createOrUpdateHtmlFile(key) {
         document.getElementById('fileFrame').style.display = 'none';
         document.getElementById('myButton').style.display = 'none';
 
-        let countdown = 80;
+        let countdown = 10;
         const keyTitle = document.getElementById('keyTitle');
         keyTitle.style.display = 'block'; // Hiển thị phần tử 'keyTitle'
         keyTitle.textContent = `Wait : ${countdown}`;
@@ -113,7 +113,7 @@ async function createOrUpdateHtmlFile(key) {
             // Khi đếm ngược về 0, dừng đếm và chuyển hướng
             if (countdown === 0) {
                 clearInterval(interval);
-                window.location.href = `https://ntt-key.github.io/NTT-KEY/Key/${hwid}${currentDate.day}${currentDate.month}${currentDate.year}.html`;
+                window.location.href = `https://ntt-key.vercel.app/Key/${hwid}${currentDate.day}${currentDate.month}${currentDate.year}.html`;
             }
         }, 1000); // Cập nhật mỗi giây
     } catch (error) {
