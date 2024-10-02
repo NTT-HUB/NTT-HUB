@@ -1,6 +1,6 @@
-let c1 = "ghp_nkvsS7";
-let c2 = "CNToc8pz6JXaqTtumA";
-let c3 = "lC2Y3X3q9yCU";
+let c1 = "ghp_z0c2mIDxkne";
+let c2 = "llVUHSyouap";
+let c3 = "EFPofFhf1G15EW";
 let c4 = c1 + c2 + c3;
 
 const token = c4; // Thay thế bằng token mới
