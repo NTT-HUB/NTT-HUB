@@ -1,0 +1,88 @@
+
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Nền đen */
+            color: #fff; /* Chữ trắng */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            background-color: #111; /* Nền tối cho khung */
+            border: 2px solid #fff; /* Viền trắng */
+            padding: 20px;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Hiệu ứng đổ bóng nhẹ */
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .key-display {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff; /* Chữ trắng */
+            background-color: #333; /* Nền tối cho ô chứa key */
+            padding: 10px;
+            border: 1px solid #fff; /* Viền trắng */
+            border-radius: 5px;
+        }
+        .copy-button {
+            background-color: transparent; /* Nền trong suốt */
+            color: #fff; /* Chữ trắng */
+            border: 2px solid #fff; /* Viền trắng */
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #fff; /* Khi rê chuột: nền trắng */
+            color: #000; /* Khi rê chuột: chữ đen */
+        }
+        .top-left {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff; /* Chữ trắng */
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left">Key Syteam NTT HUB</div>
+    <div class="container">
+        <h1>Key</h1>
+        <div class="key-display" id="keyDisplay">KEY_NTT_HUB_${key}</div>
+        <button class="copy-button" onclick="copyKey()">Copy</button>
+    </div>
+    <script>
+    const key = localStorage.getItem('key'); 
+        function copyKey() {
+            const keyText = document.getElementById('keyDisplay').textContent;
+            navigator.clipboard.writeText(keyText).then(() => {
+                alert('Key đã được copy!');
+            }).catch(err => {
+                console.error('Error copying key:', err);
+            });
+        }
+    </script>
+</body>
+</html>
