@@ -74,6 +74,7 @@
         <button class="copy-button" onclick="copyKey()">Copy</button>
     </div>
     <script>
+        localStorage.setItem('hwid', '');
         // Lấy key từ localStorage
         const key = localStorage.getItem('key'); 
         const get = `KEY_NTT_HUB_${key}`;
