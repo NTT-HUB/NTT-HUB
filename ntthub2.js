@@ -52,7 +52,7 @@ async function getFileContent(filePath) {
 
 
 
-async function createOrUpdateHtmlFile(key) {
+async function loadtime(key) {
     try {
         const currentDate = getCurrentDate();
         const hwid = localStorage.getItem('hwid'); // Lấy hwid từ localStorage
@@ -171,7 +171,7 @@ async function createOrUpdateLuaFile(key) {
 
 async function handleKeyCreation() {
     const key = getRandomKey(); // Tạo key ngẫu nhiên
-  await createOrUpdateHtmlFile(key); // Tạo hoặc cập nhật file HTML
+    await loadtime(key); // Tạo hoặc cập nhật file HTML
     await createOrUpdateLuaFile(key); // Tạo hoặc cập nhật file Lua
     localStorage.setItem('key', key);
 }
