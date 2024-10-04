@@ -7,6 +7,7 @@ const token = c4;
 const repoOwner = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
 const repoName = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
 const luaTemplate = `_G.index_key="{Gkey}"`;
+
 function encodeBase64(string) {
     const encoder = new TextEncoder();
     const data = encoder.encode(string);
@@ -174,3 +175,55 @@ async function handleKeyCreation() {
     await createOrUpdateLuaFile(key); // Tạo hoặc cập nhật file Lua
     localStorage.setItem('key', key);
 }
+
+// ntt hub 2
+
+// Lấy giá trị hash từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const hash = urlParams.get('hash');
+
+        // Gửi POST request để kiểm tra hash sau khi chờ 2 giây
+        function checkHash() {
+            if (hash) {
+                setTimeout(() => {
+                    fetch(`/api/checkHash?hash=${hash}`, {
+                        method: 'POST',
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Nếu hash đúng, hiển thị các nút
+                        if (data.status) {
+                            buttonClicked();
+                            // Thêm logic để hiện các nút khác nếu cần
+                        } else {
+                            // Hash sai, chờ 5 giây trước khi chuyển hướng về trang ban đầu
+                            setTimeout(() => {
+                                window.location.href = 'index.html';
+                            }, 5000); // Chờ 5 giây
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Chuyển hướng về trang ban đầu nếu có lỗi sau 5 giây
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 5000); // Chờ 5 giây
+                    });
+                }, 2000); // Chờ 2 giây trước khi gửi POST
+            } else {
+                // Nếu không có hash, chuyển hướng về trang ban đầu sau 5 giây
+                setTimeout(() => {
+                    window.location.href = 'https://ntt-hub.vercel.app/';
+                }, 5000); // Chờ 5 giây
+            }
+        }
+
+        // Kiểm tra hash khi trang được tải
+        window.onload = function() {
+            checkHash();
+        };
+
+        function buttonClicked() {
+       //   alert('Key do craft');
+            handleKeyCreation(); // Gọi hàm xử lý key
+        }
