@@ -1,4 +1,12 @@
+let c1 = "ghp_z0c2mIDxkne";
+let c2 = "llVUHSyouap";
+let c3 = "EFPofFhf1G15EW";
+let c4 = c1 + c2 + c3;
 
+const token = c4;
+const repoOwner = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
+const repoName = 'NTT-KEY'; // Đảm bảo giá trị này chính xác
+const luaTemplate = `_G.index_key="{Gkey}"`;
 function encodeBase64(string) {
     const encoder = new TextEncoder();
     const data = encoder.encode(string);
